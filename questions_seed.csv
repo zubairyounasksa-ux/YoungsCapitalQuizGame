@@ -1,0 +1,11 @@
+id,question,option_a,option_b,option_c,option_d,correct_answer,category,difficulty,time_limit_seconds
+Q1,What does HTML stand for?,Hyper Text Markup Language,High Tech Modern Language,Hyper Transfer Markup Logic,Home Tool Markup Language,A,Web Dev,Easy,15
+Q2,Which CSS property controls text size?,font-weight,text-size,font-size,letter-size,C,Web Dev,Easy,15
+Q3,What is the output of: console.log(typeof null)?,null,undefined,object,boolean,C,JavaScript,Medium,20
+Q4,Which HTTP method is used to create a resource?,GET,POST,PUT,PATCH,B,Web Dev,Easy,15
+Q5,What does === check in JavaScript?,Value only,Type only,Value and type,Reference equality,C,JavaScript,Medium,20
+Q6,Which of these is NOT a JavaScript data type?,String,Float,Boolean,Symbol,B,JavaScript,Medium,20
+Q7,What does API stand for?,Application Programming Interface,Automated Protocol Integration,Application Process Instruction,Advanced Programming Interface,A,General,Easy,15
+Q8,In CSS Flexbox what does justify-content control?,Vertical alignment,Horizontal alignment,Both axes,Element size,B,CSS,Medium,20
+Q9,What is a closure in JavaScript?,A loop that closes,A function with access to its outer scope,An IIFE,A sealed object,B,JavaScript,Hard,25
+Q10,Which HTTP status code means "Not Found"?,200,301,403,404,D,Web Dev,Easy,15

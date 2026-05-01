@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QuizCore</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── LOADING ─────────────────────────────── -->
+  <div id="screen-loading" class="screen active">
+    <div class="loader-ring"></div>
+    <p class="loader-text">Fetching questions<span class="dots"></span></p>
+  </div>
+
+  <!-- ── START ───────────────────────────────── -->
+  <div id="screen-start" class="screen">
+    <div class="start-card">
+      <div class="logo-badge">QC</div>
+      <h1>Quiz<span class="accent">Core</span></h1>
+      <p class="subtitle">10 questions · timed · server-validated</p>
+      <div class="meta-chips">
+        <span class="chip">⚡ Auto-advance</span>
+        <span class="chip">🔒 Answers server-side</span>
+        <span class="chip">📊 Score tracking</span>
+      </div>
+      <button id="btn-start" class="btn-primary">Start Quiz</button>
+    </div>
+  </div>
+
+  <!-- ── QUIZ ────────────────────────────────── -->
+  <div id="screen-quiz" class="screen">
+    <header class="quiz-header">
+      <div class="progress-meta">
+        <span id="q-counter" class="mono">01 / 10</span>
+        <span id="q-category" class="chip chip-sm">General</span>
+      </div>
+      <div class="score-display">
+        <span class="score-label">Score</span>
+        <span id="live-score" class="mono accent">0</span>
+      </div>
+    </header>
+
+    <div class="progress-bar-track">
+      <div id="progress-bar" class="progress-bar-fill"></div>
+    </div>
+
+    <div class="timer-ring-wrap">
+      <svg class="timer-svg" viewBox="0 0 100 100">
+        <circle class="timer-bg" cx="50" cy="50" r="44"/>
+        <circle id="timer-arc" class="timer-arc" cx="50" cy="50" r="44"/>
+      </svg>
+      <span id="timer-num" class="timer-num mono">20</span>
+    </div>
+
+    <div class="question-card">
+      <p id="q-difficulty" class="difficulty-tag">Medium</p>
+      <h2 id="question-text" class="question-text">Loading…</h2>
+    </div>
+
+    <div id="options-grid" class="options-grid">
+      <button class="option-btn" data-key="A"><span class="opt-key">A</span><span class="opt-text"></span></button>
+      <button class="option-btn" data-key="B"><span class="opt-key">B</span><span class="opt-text"></span></button>
+      <button class="option-btn" data-key="C"><span class="opt-key">C</span><span class="opt-text"></span></button>
+      <button class="option-btn" data-key="D"><span class="opt-key">D</span><span class="opt-text"></span></button>
+    </div>
+
+    <div id="feedback-bar" class="feedback-bar hidden">
+      <span id="feedback-icon"></span>
+      <span id="feedback-text"></span>
+    </div>
+  </div>
+
+  <!-- ── RESULTS ──────────────────────────────── -->
+  <div id="screen-results" class="screen">
+    <div class="results-card">
+      <div id="results-emoji" class="results-emoji">🏆</div>
+      <h2 id="results-title">Quiz Complete!</h2>
+      <div class="score-big">
+        <span id="final-score" class="mono">0</span>
+        <span class="score-denom mono">/10</span>
+      </div>
+      <p id="results-msg" class="results-msg"></p>
+      <div id="breakdown" class="breakdown"></div>
+      <button id="btn-restart" class="btn-primary">Play Again</button>
+    </div>
+  </div>
+
+  <!-- ── ERROR ────────────────────────────────── -->
+  <div id="screen-error" class="screen">
+    <div class="error-card">
+      <p class="error-icon">⚠️</p>
+      <h2>Something went wrong</h2>
+      <p id="error-msg" class="error-detail">Unable to connect to the API.</p>
+      <button id="btn-retry" class="btn-primary">Retry</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
