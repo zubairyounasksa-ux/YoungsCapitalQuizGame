@@ -11,86 +11,101 @@
 </head>
 <body>
 
-  <!-- ── LOADING ─────────────────────────────── -->
+  <!-- LOADING -->
   <div id="screen-loading" class="screen active">
     <div class="loader-ring"></div>
     <p class="loader-text">Fetching questions<span class="dots"></span></p>
   </div>
 
-  <!-- ── START ───────────────────────────────── -->
+  <!-- START -->
   <div id="screen-start" class="screen">
     <div class="start-card">
       <div class="logo-badge">QC</div>
       <h1>Quiz<span class="accent">Core</span></h1>
       <p class="subtitle">10 questions · timed · server-validated</p>
       <div class="meta-chips">
-        <span class="chip">⚡ Auto-advance</span>
+        <span class="chip">⚡ Instant advance</span>
         <span class="chip">🔒 Answers server-side</span>
-        <span class="chip">📊 Score tracking</span>
+        <span class="chip">📊 Score at the end</span>
       </div>
       <button id="btn-start" class="btn-primary">Start Quiz</button>
     </div>
   </div>
 
-  <!-- ── QUIZ ────────────────────────────────── -->
+  <!-- QUIZ -->
   <div id="screen-quiz" class="screen">
     <header class="quiz-header">
       <div class="progress-meta">
         <span id="q-counter" class="mono">01 / 10</span>
         <span id="q-category" class="chip chip-sm">General</span>
       </div>
-      <div class="score-display">
-        <span class="score-label">Score</span>
-        <span id="live-score" class="mono accent">0</span>
-      </div>
+      <span id="q-difficulty" class="chip chip-sm diff-chip">Medium</span>
     </header>
 
     <div class="progress-bar-track">
       <div id="progress-bar" class="progress-bar-fill"></div>
     </div>
 
-    <div class="timer-ring-wrap">
-      <svg class="timer-svg" viewBox="0 0 100 100">
-        <circle class="timer-bg" cx="50" cy="50" r="44"/>
-        <circle id="timer-arc" class="timer-arc" cx="50" cy="50" r="44"/>
-      </svg>
-      <span id="timer-num" class="timer-num mono">20</span>
-    </div>
+    <div id="quiz-body" class="quiz-body">
+      <div class="timer-ring-wrap">
+        <svg class="timer-svg" viewBox="0 0 100 100">
+          <circle class="timer-bg" cx="50" cy="50" r="44"/>
+          <circle id="timer-arc" class="timer-arc" cx="50" cy="50" r="44"/>
+        </svg>
+        <span id="timer-num" class="timer-num mono">20</span>
+      </div>
 
-    <div class="question-card">
-      <p id="q-difficulty" class="difficulty-tag">Medium</p>
-      <h2 id="question-text" class="question-text">Loading…</h2>
-    </div>
+      <div class="question-card">
+        <h2 id="question-text" class="question-text">Loading…</h2>
+      </div>
 
-    <div id="options-grid" class="options-grid">
-      <button class="option-btn" data-key="A"><span class="opt-key">A</span><span class="opt-text"></span></button>
-      <button class="option-btn" data-key="B"><span class="opt-key">B</span><span class="opt-text"></span></button>
-      <button class="option-btn" data-key="C"><span class="opt-key">C</span><span class="opt-text"></span></button>
-      <button class="option-btn" data-key="D"><span class="opt-key">D</span><span class="opt-text"></span></button>
-    </div>
-
-    <div id="feedback-bar" class="feedback-bar hidden">
-      <span id="feedback-icon"></span>
-      <span id="feedback-text"></span>
+      <div id="options-grid" class="options-grid">
+        <button class="option-btn" data-key="A"><span class="opt-key">A</span><span class="opt-text"></span></button>
+        <button class="option-btn" data-key="B"><span class="opt-key">B</span><span class="opt-text"></span></button>
+        <button class="option-btn" data-key="C"><span class="opt-key">C</span><span class="opt-text"></span></button>
+        <button class="option-btn" data-key="D"><span class="opt-key">D</span><span class="opt-text"></span></button>
+      </div>
     </div>
   </div>
 
-  <!-- ── RESULTS ──────────────────────────────── -->
+  <!-- RESULTS -->
   <div id="screen-results" class="screen">
     <div class="results-card">
       <div id="results-emoji" class="results-emoji">🏆</div>
       <h2 id="results-title">Quiz Complete!</h2>
+
       <div class="score-big">
         <span id="final-score" class="mono">0</span>
-        <span class="score-denom mono">/10</span>
+        <span id="score-denom" class="score-denom mono">/10</span>
       </div>
-      <p id="results-msg" class="results-msg"></p>
+
+      <div class="stats-row">
+        <div class="stat-pill">
+          <span class="stat-val accent" id="stat-accuracy">0%</span>
+          <span class="stat-lbl">Accuracy</span>
+        </div>
+        <div class="stat-pill">
+          <span class="stat-val correct-col" id="stat-correct">0</span>
+          <span class="stat-lbl">Correct</span>
+        </div>
+        <div class="stat-pill">
+          <span class="stat-val incorrect-col" id="stat-wrong">0</span>
+          <span class="stat-lbl">Wrong</span>
+        </div>
+        <div class="stat-pill">
+          <span class="stat-val muted-col" id="stat-skipped">0</span>
+          <span class="stat-lbl">Skipped</span>
+        </div>
+      </div>
+
+      <p class="breakdown-header">Question Breakdown</p>
       <div id="breakdown" class="breakdown"></div>
+
       <button id="btn-restart" class="btn-primary">Play Again</button>
     </div>
   </div>
 
-  <!-- ── ERROR ────────────────────────────────── -->
+  <!-- ERROR -->
   <div id="screen-error" class="screen">
     <div class="error-card">
       <p class="error-icon">⚠️</p>
